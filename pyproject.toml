@@ -1,0 +1,42 @@
+[project]
+name = "agentic-ai-180day-mastery"
+version = "0.1.0"
+description = "Agentic AI & AI system design — a 180-day, measurement-driven curriculum and its capstone."
+readme = "README.md"
+authors = [{ name = "Sameer Thite" }]
+requires-python = ">=3.14"
+dependencies = [
+    "anthropic>=2.8.0",
+    "httpx>=0.28.1",
+    "numpy>=2.5.4",
+    "pandas>=3.1.1",
+    "pydantic>=2.14.3",
+    "python-dotenv>=1.2.4",
+    "rich>=15.0.0",
+    "tiktoken>=0.14.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pyyaml>=6.0.3",
+    "ruff>=0.17.4",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "agentic_mastery"
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "drills", "sentinel"]
+addopts = "--import-mode=importlib -q"

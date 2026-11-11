@@ -1,0 +1,26 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# node (sentinel/ui, Phase 1 onward)
+node_modules/
+.next/
+out/
+
+# local model weights and large artifacts — never commit these
+*.gguf
+*.safetensors
+models/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/
