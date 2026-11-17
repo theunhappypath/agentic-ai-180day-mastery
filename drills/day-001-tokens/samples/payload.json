@@ -1,0 +1,147 @@
+{
+  "schema_version": "2026-03-11",
+  "event_id": "evt_01JQ8ZK3M9X2R7VYF4TBNCD5WH",
+  "event_type": "incident.severity_changed",
+  "emitted_at": "2026-08-19T02:41:07.918Z",
+  "producer": {
+    "service_name": "alertmanager-bridge",
+    "service_version": "4.11.2",
+    "deployment_environment": "prod-euw1",
+    "instance_id": "alertmanager-bridge-7d9c4f8b6c-x2ktp"
+  },
+  "incident": {
+    "incident_id": "INC-2026-0817",
+    "short_id": "b3f9a2",
+    "title": "Elevated 5xx on payments-api checkout route",
+    "status": "investigating",
+    "severity": {
+      "previous": "sev3",
+      "current": "sev2",
+      "changed_by": "auto-escalation"
+    },
+    "opened_at": "2026-08-19T02:14:33.002Z",
+    "acknowledged_at": "2026-08-19T02:19:51.447Z",
+    "resolved_at": null,
+    "impact": {
+      "customer_facing": true,
+      "affected_regions": ["eu-west-1", "eu-central-1"],
+      "estimated_affected_users": 18422,
+      "error_budget_consumed_pct": 37.4,
+      "slo": {
+        "name": "checkout-availability",
+        "target": 0.999,
+        "window_days": 28
+      }
+    },
+    "services": [
+      {
+        "name": "payments-api",
+        "role": "primary",
+        "owner_team": "payments-core",
+        "runbook_url": "https://runbooks.internal/payments-api/5xx",
+        "health": {
+          "error_rate": 0.0731,
+          "p50_ms": 142,
+          "p95_ms": 3184,
+          "p99_ms": 9720
+        }
+      },
+      {
+        "name": "ledger-writer",
+        "role": "downstream",
+        "owner_team": "payments-core",
+        "runbook_url": "https://runbooks.internal/ledger-writer/backpressure",
+        "health": {
+          "error_rate": 0.0012,
+          "p50_ms": 27,
+          "p95_ms": 88,
+          "p99_ms": 410
+        }
+      },
+      {
+        "name": "pgbouncer-payments",
+        "role": "suspect",
+        "owner_team": "platform-data",
+        "runbook_url": "https://runbooks.internal/pgbouncer/pool-exhaustion",
+        "health": { "pool_size": 200, "pool_in_use": 200, "cl_waiting": 613 }
+      }
+    ],
+    "signals": [
+      {
+        "signal_id": "sig_9f21c4",
+        "kind": "metric_threshold",
+        "source": "prometheus/euw1",
+        "expression": "sum(rate(http_requests_total{service=\"payments-api\",code=~\"5..\"}[5m])) / sum(rate(http_requests_total{service=\"payments-api\"}[5m])) > 0.05",
+        "first_seen_at": "2026-08-19T02:13:58.000Z",
+        "value": 0.0731,
+        "threshold": 0.05
+      },
+      {
+        "signal_id": "sig_a07b13",
+        "kind": "trace_anomaly",
+        "source": "tempo/euw1",
+        "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+        "root_span_id": "00f067aa0ba902b7",
+        "operation": "POST /v1/checkout/confirm",
+        "duration_ms": 9712,
+        "attributes": {
+          "db.system": "postgresql",
+          "db.connection_pool.wait_ms": 8933,
+          "http.status_code": 503,
+          "net.peer.name": "pgbouncer-payments.svc.cluster.local"
+        }
+      }
+    ],
+    "responders": [
+      {
+        "handle": "s.thite",
+        "role": "incident_commander",
+        "paged_at": "2026-08-19T02:15:02.410Z",
+        "acknowledged": true
+      },
+      {
+        "handle": "m.karve",
+        "role": "subject_matter_expert",
+        "paged_at": "2026-08-19T02:22:44.019Z",
+        "acknowledged": true
+      },
+      {
+        "handle": "oncall-platform-data",
+        "role": "subject_matter_expert",
+        "paged_at": "2026-08-19T02:31:10.775Z",
+        "acknowledged": false
+      }
+    ],
+    "timeline": [
+      {
+        "at": "2026-08-19T02:14:33.002Z",
+        "actor": "system",
+        "action": "incident.opened",
+        "note": "Auto-opened from sig_9f21c4"
+      },
+      {
+        "at": "2026-08-19T02:26:19.884Z",
+        "actor": "s.thite",
+        "action": "note.added",
+        "note": "Rollback of payments-api 4.9.0 -> 4.8.7 queued, holding on data team input"
+      },
+      {
+        "at": "2026-08-19T02:41:07.918Z",
+        "actor": "system",
+        "action": "severity.changed",
+        "note": "sev3 -> sev2, error budget burn rate 14x"
+      }
+    ],
+    "related": {
+      "change_ids": ["chg_01JQ8Y6P4WEB2N0M", "chg_01JQ8V2R7KQD9TAC"],
+      "previous_incident_ids": ["INC-2026-0640", "INC-2025-1188"],
+      "suppressed_alert_count": 47
+    },
+    "tags": {
+      "team": "payments-core",
+      "tier": "1",
+      "compliance_scope": "pci-dss",
+      "auto_escalated": "true"
+    }
+  }
+}
