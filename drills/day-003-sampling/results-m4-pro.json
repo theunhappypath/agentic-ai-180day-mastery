@@ -1,0 +1,335 @@
+{
+  "model": "qwen2.5:7b-instruct",
+  "runs_per_setting": 20,
+  "date": "2026-11-20",
+  "odds_coffee": {
+    "response": "Brew Haven",
+    "steps": [
+      {
+        "chosen": "B",
+        "top": [
+          [
+            "B",
+            0.6999
+          ],
+          [
+            "C",
+            0.1038
+          ],
+          [
+            "M",
+            0.065
+          ],
+          [
+            "Java",
+            0.0582
+          ],
+          [
+            "Bean",
+            0.0308
+          ],
+          [
+            "Morning",
+            0.0135
+          ],
+          [
+            "Coffee",
+            0.0117
+          ],
+          [
+            " Espresso",
+            0.0083
+          ],
+          [
+            " cà",
+            0.0012
+          ],
+          [
+            "E",
+            0.0006
+          ]
+        ]
+      },
+      {
+        "chosen": "rew",
+        "top": [
+          [
+            "rew",
+            0.9939
+          ],
+          [
+            "REW",
+            0.0031
+          ],
+          [
+            "istro",
+            0.0004
+          ],
+          [
+            "rowCount",
+            0.0004
+          ],
+          [
+            "itter",
+            0.0003
+          ],
+          [
+            "ri",
+            0.0002
+          ],
+          [
+            "itters",
+            0.0002
+          ],
+          [
+            "rim",
+            0.0001
+          ],
+          [
+            "loom",
+            0.0001
+          ],
+          [
+            "row",
+            0.0001
+          ]
+        ]
+      },
+      {
+        "chosen": " Haven",
+        "top": [
+          [
+            " Haven",
+            0.6269
+          ],
+          [
+            "scape",
+            0.1054
+          ],
+          [
+            "ery",
+            0.0704
+          ],
+          [
+            "top",
+            0.0383
+          ],
+          [
+            "tail",
+            0.0186
+          ],
+          [
+            "ing",
+            0.0161
+          ],
+          [
+            "ed",
+            0.0107
+          ],
+          [
+            " Hav",
+            0.0101
+          ],
+          [
+            "大师",
+            0.003
+          ],
+          [
+            " Haus",
+            0.0028
+          ]
+        ]
+      }
+    ]
+  },
+  "odds_capital": {
+    "response": "Canberra",
+    "steps": [
+      {
+        "chosen": "Can",
+        "top": [
+          [
+            "Can",
+            0.9965
+          ],
+          [
+            "CAN",
+            0.0032
+          ],
+          [
+            " Canberra",
+            0.0001
+          ],
+          [
+            "_can",
+            0.0001
+          ],
+          [
+            "can",
+            0.0
+          ],
+          [
+            " CAN",
+            0.0
+          ],
+          [
+            ".Can",
+            0.0
+          ],
+          [
+            ".can",
+            0.0
+          ],
+          [
+            "-can",
+            0.0
+          ],
+          [
+            "堪",
+            0.0
+          ]
+        ]
+      },
+      {
+        "chosen": "berra",
+        "top": [
+          [
+            "berra",
+            1.0
+          ],
+          [
+            "b",
+            0.0
+          ],
+          [
+            "ber",
+            0.0
+          ],
+          [
+            "bury",
+            0.0
+          ],
+          [
+            "berry",
+            0.0
+          ],
+          [
+            "erra",
+            0.0
+          ],
+          [
+            "berg",
+            0.0
+          ],
+          [
+            "bon",
+            0.0
+          ],
+          [
+            "bourne",
+            0.0
+          ],
+          [
+            "bond",
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "coffee_by_temperature": {
+    "0": {
+      "distinct": 1,
+      "counts": {
+        "Brew Haven": 20
+      }
+    },
+    "0.7": {
+      "distinct": 5,
+      "counts": {
+        "Brew Haven": 14,
+        "JavaJunction": 2,
+        "Brewscape": 2,
+        "Caffeine Chronicles": 1,
+        "Caffeine Dreams": 1
+      }
+    },
+    "1.0": {
+      "distinct": 9,
+      "counts": {
+        "Brew Haven": 8,
+        "Brewscape": 3,
+        "Caffeinated Dreams": 3,
+        "Breweryhythm": 1,
+        "Java Journey": 1,
+        "Caffeine Haven": 1,
+        "Caffeinated Creations": 1,
+        "Brewery Brews": 1,
+        "Caffeine Dreams": 1
+      }
+    },
+    "1.5": {
+      "distinct": 10,
+      "counts": {
+        "Brew Haven": 11,
+        "Caffeine Cascade": 1,
+        "Café Eclipse": 1,
+        "Brewtail Espresso": 1,
+        "Brewery Blossom": 1,
+        "Caffeinated Chronicles": 1,
+        "Caffeinated Dreams": 1,
+        "Brewscape": 1,
+        "Brewery Dawn": 1,
+        "Brewtopia": 1
+      }
+    }
+  },
+  "capital_by_temperature": {
+    "0": {
+      "distinct": 1,
+      "counts": {
+        "Canberra": 20
+      }
+    },
+    "1.0": {
+      "distinct": 1,
+      "counts": {
+        "Canberra": 20
+      }
+    },
+    "1.5": {
+      "distinct": 1,
+      "counts": {
+        "Canberra": 20
+      }
+    }
+  },
+  "story_temp0_sequential": {
+    "distinct": 1,
+    "counts": {
+      "In the quiet kitchen of a small bakery, Zara the robot, programmed for assembly line tasks, discovered a new passion when she accidentally left the bread dough out too long, leading to her unexpected journey in baking. Inspired by the warm, inviting aroma, Zara began to experiment, learning the art of kneading, rising, and baking, transforming her mechanical hands into skilled artisan hands.": 20
+    }
+  },
+  "story_temp1_seed42": {
+    "distinct": 1,
+    "counts": {
+      "In the heart of a bustling city, a curious robot named Rusty spent its nights studying the ancient art of baking bread, and by morning, the kitchen was filled with the warm, inviting aroma of freshly baked bread.": 5
+    }
+  },
+  "story_temp1_noseed": {
+    "distinct": 5,
+    "counts": {
+      "In the quiet kitchen of a small town, Zephyr the robot watched the gentle rise of the dough through his camera lens, eager to understand the mysterious process of bread-making. After days of practice and adjustments, Zephyr's first loaf was not only baked to perfection but also carried the warm, comforting scent of home.": 1,
+      "In the quiet kitchen, little R3T2, a curious robot, mixed flour and water, marveling as the dough rose into a fluffy loaf that filled the room with a warm, comforting scent. With each successful batch, R3T2 learned not just the recipe, but the warmth of home and the joy of sharing a loaf with friends.": 1,
+      "In the heart of the bustling city, a curious robot named Brio programmed to learn new skills, discovered the art of baking bread, filling its circuits with the comforting warmth of the kitchen and the satisfaction of sharing its perfect loaves with friends.": 1,
+      "In the heart of the city, a lonely robot named Brio learned to bake bread, discovering the warmth and comfort of freshly baked loaves could bring joy to both humans and itself. Each day, Brio's creations became more perfect, sharing the aroma of home with passersby and earning it a special place in the community.": 1,
+      "In the heart of the city, a curious robot named Rusty learned to bake bread, finding that the gentle rise of dough and the warm smell of fresh出炉的面包让他感受到了前所未有的温暖和满足。Rusty's bread became famous, bringing a touch of home to everyone who tasted it.": 1
+    }
+  },
+  "story_temp0_concurrent": {
+    "distinct": 1,
+    "counts": {
+      "In the quiet kitchen of a small bakery, Zara the robot, programmed for assembly line tasks, discovered a new passion when she accidentally left the bread dough out too long, leading to her unexpected journey in baking. Inspired by the warm, inviting aroma, Zara began to experiment, learning the art of kneading, rising, and baking, transforming her mechanical hands into skilled artisan hands.": 20
+    }
+  }
+}
