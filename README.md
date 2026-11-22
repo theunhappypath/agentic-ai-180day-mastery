@@ -71,6 +71,7 @@ this table.
 | 1 | 0 | [Tokenization and the real unit of cost](docs/days/day-001-tokenization.md) | learn | `drills/day-001-tokens/` | `notes/day-001.md` |
 | 2 | 0 | [Transformer inference: prefill, decode, and the KV cache](docs/days/day-002-inference.md) | learn | `drills/day-002-inference/` | `notes/day-002.md` |
 | 3 | 0 | Sampling, determinism and reproducibility (full lesson to come; [roadmap](docs/phase-00-foundations.md)) | learn | `drills/day-003-sampling/` | — |
+| 4 | 0 | Context windows and lost in the middle (full lesson to come; [roadmap](docs/phase-00-foundations.md)) | learn | `drills/day-004-context/` | — |
 
 ---
 
