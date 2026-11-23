@@ -11,4 +11,7 @@ An agentic incident response platform. Full spec: [docs/capstone-sentinel.md](..
 | `serving/` | vLLM configs, router, load and latency benchmarks | Phase 5 (v0.5) |
 | `ui/` | Next.js console — watch the agent, approve gates, read traces | Phase 1, Day 35 |
 
+Every model call SENTINEL makes goes through `agentic_mastery.lab.call()` (Day 5), so its
+settings, tokens, timings, cost and warnings land in `costs.jsonl` with everything else.
+
 Empty directories carry a `.gitkeep` until their phase arrives.
